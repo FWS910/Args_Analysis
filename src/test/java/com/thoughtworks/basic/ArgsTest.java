@@ -69,7 +69,7 @@ public class ArgsTest {
         }
     }
     @Test
-    public void should_return_args_when_inputArgs() throws Exception {
+    public void should_return_args_analise_when_arg_given_correct_inputValue() throws Exception {
         String inputArgs = "-l true -p 8080 -d /usr/logs";
 
         Args args = new Args(inputArgs);
