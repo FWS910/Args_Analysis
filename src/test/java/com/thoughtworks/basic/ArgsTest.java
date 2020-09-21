@@ -57,4 +57,16 @@ public class ArgsTest {
         }
     }
 
+    @Test
+    public void should_throw_error_no_legal_when_repeat_flag() throws Exception {
+        String inputArgs = "-l true -l false";
+
+        try {
+            Args args = new Args(inputArgs);
+        } catch (Exception exception) {
+            System.out.println(exception.getMessage());
+            assertEquals("不允许输入重复flag",exception.getMessage());
+        }
+    }
+
 }
