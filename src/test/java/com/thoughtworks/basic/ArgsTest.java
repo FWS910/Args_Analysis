@@ -45,4 +45,16 @@ public class ArgsTest {
         }
     }
 
+    @Test
+    public void should_throw_value_no_legal_when_args_given_repeat_flags() throws Exception {
+        String inputArgs = "-l -l";
+
+        try {
+            Args args = new Args(inputArgs);
+        } catch (Exception exception) {
+            System.out.println(exception.getMessage());
+            assertEquals("不允许输入重复flag",exception.getMessage());
+        }
+    }
+
 }
