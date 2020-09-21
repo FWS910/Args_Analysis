@@ -33,4 +33,16 @@ public class ArgsTest {
         }
     }
 
+    @Test
+    public void should_throw_value_no_legal_when_args_given_flages_no_space_split() throws Exception {
+        String inputArgs = "-l-d";
+
+        try {
+            Args args = new Args(inputArgs);
+        } catch (Exception exception) {
+            System.out.println(exception.getMessage());
+            assertEquals("参数之间不用空格分割视为非法",exception.getMessage());
+        }
+    }
+
 }
