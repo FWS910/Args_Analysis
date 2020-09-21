@@ -21,6 +21,16 @@ public class ArgsTest {
                 ,args.getFlagSchemaList().toString());
 
     }
+    @Test
+    public void should_throw_value_no_legal_when_args_given_error_value() throws Exception {
+        String inputArgs = "-l -true";
 
+        try {
+            Args args = new Args(inputArgs);
+        } catch (Exception exception) {
+            System.out.println(exception.getMessage());
+            assertEquals("不能识别的命令标识符",exception.getMessage());
+        }
+    }
 
 }
