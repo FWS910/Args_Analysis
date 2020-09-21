@@ -68,5 +68,15 @@ public class ArgsTest {
             assertEquals("不允许输入重复flag",exception.getMessage());
         }
     }
+    @Test
+    public void should_return_args_when_inputArgs() throws Exception {
+        String inputArgs = "-l true -p 8080 -d /usr/logs";
 
+        Args args = new Args(inputArgs);
+
+        assertEquals("[FlagSchema{flag='l', value=true, type='boolean'}, " +
+                        "FlagSchema{flag='p', value=8080, type='int'}, " +
+                        "FlagSchema{flag='d', value=/usr/logs, type='class java.lang.String'}]"
+                ,args.getFlagSchemaList().toString());
+    }
 }
